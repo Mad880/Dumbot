@@ -9,7 +9,7 @@ like it that way ok
 class Annoying(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self._link_regex = re.compile(r'https?://(?:[-\w.]|(?:%[\da-fA-F]{2}))+') # is a link? 
+        self._link_regex = re.compile(r'https?://(?:[-\w.]|(?:%[\da-fA-F]{2}))+') # is it a link? 
         
     async def delete_link(self, message):
         if not message.channel: # self explanatory
