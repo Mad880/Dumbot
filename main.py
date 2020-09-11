@@ -1,5 +1,8 @@
 import discord
 from discord.ext import commands
+import urllib.request
+import asyncio
+from bs4 import BeautifulSoup
 
 initial_extensions = ['cogs.annoying']
 
@@ -21,6 +24,15 @@ no help command, have fun
 async def on_ready():
     print("lmao hi")
 
+@client.event
+async def on_ready():
+    while not client.is_closed:
+        html = urllib.request.urlopen("https://insult.mattbas.org/api/insult.html").read()
+        soup = BeautifulSoup(html,"html.parser")
+        insult_text = soup.find('h1')
+        print(insult_text.text)
+        await client.send_message(discord.Object(id=CHANNEL_ID_HERE), insult_text.text)
+        await asyncio.sleep(0.7) # Changes how fast the messages are being posted (Anything under 0.7 will break it)
 
 @bot.command()
 async def hi(ctx):
