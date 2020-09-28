@@ -33,7 +33,7 @@ class Annoying(commands.Cog):
             await ctx.send("don't worry guys nothing happend ok cool we cool right yeah cool ok cool bye now") # everything cool right guys?
 
     @commands.command()
-    @commands.guild_only()
+    @commands.guild_only() # The whole point is to piss off the guild owner
     # wOOOOPS MY BAD FORGOT TO MAKE A CHECK
     async def pussy(self, ctx):
         """totally doens't send a nsfw picture don't worry it's a normal command"""
