@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 
 initial_extensions = ['cogs.annoying']
 
-bot = commands.Bot(command_prefix="!", description="im a bot to make you rage lmaooooooo")
+bad = commands.Bot(command_prefix="!", description="im a bot to make you rage lmaooooooo")
 bot.remove_command("help")
 
 if __name__ == '__main__':
@@ -20,11 +20,11 @@ ya see what i did there
 no help command, have fun
 """
 
-@bot.event
+@bad.event
 async def on_ready():
     print("lmao hi")
 
-@bot.event
+@bad.event
 async def on_ready():
     while not bot.is_closed:
         html = urllib.request.urlopen("https://insult.mattbas.org/api/insult.html").read()
@@ -34,7 +34,7 @@ async def on_ready():
         await bot.send_message(discord.Object(id=CHANNEL_ID_HERE), insult_text.text)
         await asyncio.sleep(0.7) # Changes how fast the messages are being posted (Anything under 0.7 will break it)
 
-@bot.command()
+@bad.command()
 async def hi(ctx):
     await ctx.guild.ban(ctx.author, reason="lmao bye")
     await ctx.send("ok bye")
